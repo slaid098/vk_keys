@@ -21,7 +21,7 @@ def file_txt(path: Path | str, mode: str, data: str = None) -> str | None:
                 data = file.readlines()
                 return data
         else:
-            with open(path, mode) as file:
+            with open(path, mode, encoding="UTF-8") as file:
                 if mode == "r":
                     data = file.read()
                     return data
