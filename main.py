@@ -17,11 +17,11 @@ def file_txt(path: Path | str, mode: str, data: str = None) -> str | None:
     """
     try:
         if mode == "readlines":
-            with open(path, "r", encoding="UTF-8") as file:
+            with open(path, "r") as file:
                 data = file.readlines()
                 return data
         else:
-            with open(path, mode, encoding="UTF-8") as file:
+            with open(path, mode) as file:
                 if mode == "r":
                     data = file.read()
                     return data
