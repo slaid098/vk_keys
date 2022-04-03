@@ -1,9 +1,19 @@
 import time
 from pathlib import Path
 import random
+from configparser import ConfigParser
 
 import vk_api
 from loguru import logger
+
+
+def config_ini(key: str) -> str:
+    """
+    Get data from file config.ini
+    """
+    config = ConfigParser()
+    config.read(Path("config.ini"))
+    return config["config"][key]
 
 
 def file_txt(path: Path | str, mode: str, data: str = None) -> str | None:
@@ -179,8 +189,8 @@ def main(period: str | int, age_from: str | int, age_to: str | int) -> None:
 
 if __name__ == "__main__":
 
-    advertising_cabinet_id = file_txt(Path("advertising_cabinet_id.txt"), "r")
-    token = file_txt(Path("token.txt"), "r")
+    advertising_cabinet_id = config_ini("id")
+    token = config_ini("token")
     vk = vk_api.VkApi(token=token).get_api()
 
     period = input(
