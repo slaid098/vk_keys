@@ -1,2 +1,2 @@
 # vk_keys
-Get the popularity of keywords in Vkontakte
+Get the popularity of keywords in vk.com
